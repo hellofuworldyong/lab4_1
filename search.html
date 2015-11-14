@@ -1,0 +1,13 @@
+<p>You search for:<strong>{{query}}</strong></p>
+
+{% if books %}
+	<p>Found {{ books|length }} book {{book|pluralize}}.</p>
+	<ul>
+		{% for book in books %}
+			<li><a href="book_detail/?authorid={{ book.AuthorID }}">{{ book.Title }}</li>
+			<li><a href="delete_book/?authorid={{ book.AuthorID }}">delete</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No books matched your search criteria.</p>
+{% endif %}
